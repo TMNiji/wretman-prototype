@@ -138,10 +138,11 @@
         }
       });
 
-      const capCount = steps.length;
-      const capIndex = clamp(Math.floor(progress * capCount), 0, capCount - 1);
-      steps.forEach((s, i) => s.classList.toggle('is-active', i === capIndex));
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === capIndex));
+      /* 1 pastille = 1 image : la pastille/caption active suit l'image dominante,
+         elle bascule au milieu de chaque transition diagonale. */
+      const activeIdx = clamp(Math.round(seg), 0, N - 1);
+      steps.forEach((s, i) => s.classList.toggle('is-active', i === activeIdx));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === activeIdx));
     };
 
     window.addEventListener('scroll', () => {

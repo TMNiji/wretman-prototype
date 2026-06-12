@@ -1828,47 +1828,13 @@ body.has-hero .site-header:not(.is-scrolled) .nav-link.is-active { color: var(--
 .modal-alt { margin-top: 14px; text-align: center; font-size: 14px; }
 .modal-alt a { color: var(--c-bordeaux); text-decoration: underline; text-underline-offset: 3px; }
 
+
 /* ------------------------------------------------------------
-   27. PRÉLOADER + TRANSITION DE PAGE
-   Voile plein écran injecté en JS sur toutes les pages.
-   Au chargement : couvre puis se retire vers le haut (préloader).
-   À la navigation interne : redescend pour couvrir avant de naviguer.
+   27. Mobile : empêche l'expansion du viewport causée par le
+   panneau de nav hors-écran (position:fixed translateX(100%)).
+   Réservé au mobile/tablette — le pin sticky du "Survol" n'existe
+   qu'en desktop (>=1024px), donc aucun risque pour le sticky.
    ------------------------------------------------------------ */
-.page-veil {
-  position: fixed;
-  inset: 0;
-  z-index: 2000;
-  background: var(--c-bordeaux);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(0);
-  transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
-  will-change: transform;
-}
-.page-veil .logo { color: var(--c-white); font-size: 34px; }
-@media (min-width: 768px) { .page-veil .logo { font-size: 44px; } }
-.page-veil .logo-name {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: veilLogoIn 0.9s var(--t-med, 0.3s) forwards;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
-.page-veil .logo-estate {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: veilLogoIn 0.9s forwards;
-  animation-delay: 0.12s;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
-@keyframes veilLogoIn { to { opacity: 1; transform: none; } }
-
-.page-veil--hidden {
-  transform: translateY(-100%);
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page-veil { transition: none; }
-  .page-veil .logo-name, .page-veil .logo-estate { animation: none; opacity: 1; transform: none; }
+@media (max-width: 1023px) {
+  html, body { overflow-x: hidden; }
 }

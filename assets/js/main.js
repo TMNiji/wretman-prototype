@@ -622,50 +622,9 @@
   }
 
   /* ============================================================
-     14. PRÉLOADER + TRANSITION DE PAGE
-         Voile injecté en JS (présent sur toutes les pages).
-         Chargement : couvre puis se retire. Navigation interne :
-         redescend pour couvrir, puis navigue. Respecte reduced-motion.
-     ============================================================ */
-  function initPageTransitions() {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    let veil = $('.page-veil');
-    if (!veil) {
-      veil = document.createElement('div');
-      veil.className = 'page-veil';
-      veil.setAttribute('aria-hidden', 'true');
-      veil.innerHTML =
-        '<span class="logo"><span class="logo-name">Wretman</span><span class="logo-estate">Estate</span></span>';
-      document.body.insertBefore(veil, document.body.firstChild);
-    }
-
-    const reveal = () => veil.classList.add('page-veil--hidden');
-    const now = () => (window.performance && performance.now ? performance.now() : Date.now());
-
-    if (reduce) {
-      reveal();
-    } else {
-      const t0 = now();
-      const minShow = 650; // laisse respirer le logo
-      const doReveal = () => window.setTimeout(reveal, Math.max(0, minShow - (now() - t0)));
-      if (document.readyState === 'complete') doReveal();
-      else window.addEventListener('load', doReveal, { once: true });
-      window.setTimeout(reveal, 3200); // filet de sécurité
-    }
-
-    // Retour navigateur (bfcache) : ne pas rester couvert
-    window.addEventListener('pageshow', (e) => { if (e.persisted) veil.classList.add('page-veil--hidden'); });
-
-    /* Pageswitcher retiré : plus d'interception des liens ni de voile à la navigation.
-       Seul le préchargeur (voile au chargement, puis retrait) est conservé. */
-  }
-
-  /* ============================================================
      INIT GLOBALE
      ============================================================ */
   function init() {
-    initPageTransitions(); // 14 — voile en premier
     initHeaderScroll();    // 1
     initBurger();          // 2
     initScrollTop();       // 3
