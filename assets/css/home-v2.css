@@ -387,15 +387,40 @@
 .riviera-dots span.is-active { background: #fff; transform: scale(1.5); }
 @media (max-width: 767px) { .riviera-dots { display: none; } }
 
-/* Repli mobile / mouvement réduit : pas d'épinglage, frame fixe + étapes empilées */
+/* Mouvement réduit (desktop) : 1ʳᵉ image + 1ʳᵉ caption, fixe (pas d'épinglage) */
 .riviera--static .riviera-scroll { height: auto; }
-.riviera--static .riviera-sticky { position: relative; height: auto; }
-.riviera--static .riviera-frames { position: relative; height: 68vh; }
-.riviera--static .riviera-frames img:first-child { opacity: 1; transform: scale(1); }
-.riviera--static .riviera-overlay { padding: 40px 0 56px; }
-.riviera--static .riviera-caption { min-height: 0; }
-.riviera--static .riviera-step { position: relative; opacity: 1; transform: none; margin-bottom: 30px; }
+.riviera--static .riviera-sticky { position: relative; height: 78vh; }
+.riviera--static .riviera-frames img.is-current { opacity: 1; transform: scale(1); }
+.riviera--static .riviera-step.is-active { opacity: 1; transform: none; }
 .riviera--static .riviera-dots { display: none; }
+
+/* Mobile : récit empilé — chaque image avec sa caption */
+.riviera--story .riviera-scroll { height: auto; }
+.riviera--story .riviera-sticky { position: relative; height: auto; overflow: visible; padding-bottom: 48px; }
+.riviera--story .riviera-frames,
+.riviera--story .riviera-caption,
+.riviera--story .riviera-dots { display: none; }
+.riviera--story .riviera-overlay { position: relative; height: auto; display: block; padding: 40px 0 0; }
+.riviera-chapter { position: relative; margin-top: 6px; }
+.riviera-chapter img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 58vh;
+  object-fit: cover;
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+}
+.riviera-chapter .riviera-step {
+  position: relative;
+  inset: auto;
+  opacity: 1;
+  transform: none;
+  max-width: none;
+  padding: 24px 20px 30px;
+}
+.riviera-chapter .riviera-step h2 { font-size: clamp(26px, 7vw, 36px); }
 
 /* Écrans peu hauts : on resserre les sections 100vh pour ne jamais rogner le texte */
 @media (max-height: 760px) {

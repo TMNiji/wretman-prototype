@@ -97,11 +97,29 @@
     const isPhone = window.matchMedia('(max-width: 767px)').matches;
     if (!frames.length) return;
 
-    /* Repli : pas d'épinglage, 1ère frame + étapes empilées */
-    if (REDUCE || isPhone) {
+    /* MOBILE : récit empilé — chaque image avec SA caption (pas d'épinglage).
+       Cohérent et lisible : on apparie image[i] + chapitre[i]. */
+    if (isPhone) {
+      sect.classList.add('riviera--story');
+      const sticky = sect.querySelector('.riviera-sticky');
+      const story = document.createElement('div');
+      story.className = 'riviera-story';
+      frames.forEach(function (f, i) {
+        const ch = document.createElement('article');
+        ch.className = 'riviera-chapter';
+        ch.appendChild(f);
+        if (steps[i]) { steps[i].classList.add('is-active'); ch.appendChild(steps[i]); }
+        story.appendChild(ch);
+      });
+      if (sticky) sticky.appendChild(story);
+      return;
+    }
+
+    /* Desktop en mouvement réduit : 1ʳᵉ image + 1ʳᵉ caption, fixe */
+    if (REDUCE) {
       sect.classList.add('riviera--static');
       frames[0].classList.add('is-current');
-      steps.forEach((s) => s.classList.add('is-active'));
+      if (steps[0]) steps[0].classList.add('is-active');
       return;
     }
 
