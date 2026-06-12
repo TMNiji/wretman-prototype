@@ -768,3 +768,9 @@
     z-index: 1;
   }
 }
+
+/* Avis clients — sur mobile, le guillemet « " » sur la même ligne que la citation */
+@media (max-width: 899px) {
+  .testi-mark { float: left; font-size: 50px; line-height: 1; margin: 0 12px 0 0; }
+  .testi-author { clear: left; }
+}
