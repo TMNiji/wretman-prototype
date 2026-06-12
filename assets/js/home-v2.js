@@ -97,21 +97,49 @@
     const isPhone = window.matchMedia('(max-width: 767px)').matches;
     if (!frames.length) return;
 
-    /* MOBILE : récit empilé — chaque image avec SA caption (pas d'épinglage).
-       Cohérent et lisible : on apparie image[i] + chapitre[i]. */
+    /* MOBILE : slider plein écran — 1 image + sa caption par diapo, swipe +
+       défilement auto + pastilles. Chaque image apparaît une seule fois. */
     if (isPhone) {
-      sect.classList.add('riviera--story');
+      sect.classList.add('riviera--slider');
       const sticky = sect.querySelector('.riviera-sticky');
-      const story = document.createElement('div');
-      story.className = 'riviera-story';
+      const track = document.createElement('div');
+      track.className = 'riviera-track';
       frames.forEach(function (f, i) {
-        const ch = document.createElement('article');
-        ch.className = 'riviera-chapter';
-        ch.appendChild(f);
-        if (steps[i]) { steps[i].classList.add('is-active'); ch.appendChild(steps[i]); }
-        story.appendChild(ch);
+        const slide = document.createElement('div');
+        slide.className = 'riviera-slide';
+        slide.appendChild(f);                                   // image
+        if (steps[i]) { steps[i].classList.add('is-active'); slide.appendChild(steps[i]); } // caption
+        track.appendChild(slide);
       });
-      if (sticky) sticky.appendChild(story);
+      if (sticky) sticky.appendChild(track);
+
+      // kicker en surimpression
+      const kicker = sect.querySelector('.riviera-kicker');
+      if (kicker && sticky) { kicker.classList.add('riviera-kicker--float'); sticky.appendChild(kicker); }
+
+      // pastilles : synchronisées au défilement + cliquables
+      const setActive = function () {
+        const i = Math.round(track.scrollLeft / track.clientWidth);
+        dots.forEach(function (d, k) { d.classList.toggle('is-active', k === i); });
+      };
+      let raf = false;
+      track.addEventListener('scroll', function () {
+        if (!raf) { raf = true; window.requestAnimationFrame(function () { raf = false; setActive(); }); }
+      }, { passive: true });
+      dots.forEach(function (d, k) {
+        d.setAttribute('role', 'button'); d.setAttribute('tabindex', '0');
+        d.addEventListener('click', function () { track.scrollTo({ left: k * track.clientWidth, behavior: 'smooth' }); });
+      });
+      setActive();
+
+      // défilement automatique (sauf mouvement réduit), mis en pause au toucher
+      if (!REDUCE) {
+        let timer = window.setInterval(function () {
+          const next = (Math.round(track.scrollLeft / track.clientWidth) + 1) % frames.length;
+          track.scrollTo({ left: next * track.clientWidth, behavior: 'smooth' });
+        }, 4500);
+        track.addEventListener('touchstart', function () { window.clearInterval(timer); }, { passive: true });
+      }
       return;
     }
 
