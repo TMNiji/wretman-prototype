@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wretman Estate | Immobilier de prestige — Côte d'Azur &amp; Provence</title>
+  <meta name="description" content="Wretman Estate, la plus grande agence immobilière franco-scandinave de France. Villas, penthouses et domaines d'exception sur la Côte d'Azur et en Provence.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* Ajustements propres à la page d'accueil : section ADN scandinave */
+    .adn-grid { align-items: center; }
+    .adn-media { border-radius: var(--radius); overflow: hidden; }
+    .adn-media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+    @media (min-width: 1024px) { .adn-media img { aspect-ratio: 4 / 5; } }
+    .adn-points { list-style: none; margin: 28px 0 36px; display: grid; gap: 14px; }
+    .adn-points li { display: flex; align-items: baseline; gap: 14px; font-size: 16px; }
+    .adn-points li::before {
+      content: "";
+      width: 20px; height: 1px;
+      background: var(--c-bordeaux);
+      flex-shrink: 0;
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body class="has-hero">
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="index.html" aria-label="Wretman Estate, retour à l'accueil">
+      <span class="logo-name">Wretman</span><span class="logo-estate">Estate</span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <ul class="nav-list">
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="acheter.html" aria-haspopup="true">Acheter<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="acheter.html#types">Par types de biens</a></li>
+            <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+            <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+            <li><a href="acheter.html">Voir tous nos biens</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="vendre.html" aria-haspopup="true">Vendre<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="vendre.html#estimation">Estimation</a></li>
+            <li><a href="contact.html">Nous rencontrer</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="wretman.html" aria-haspopup="true">Wretman<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="wretman.html#histoire">Notre histoire</a></li>
+            <li><a href="equipe.html">Notre équipe</a></li>
+            <li><a href="wretman.html#services">Nos services</a></li>
+            <li><a href="carrieres.html">Carrières</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="agences.html">Nos agences</a>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="magazine.html" aria-haspopup="true">Magazine<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="magazine.html#articles">Articles</a></li>
+            <li><a href="magazine.html#presse">Presse &amp; médias</a></li>
+            <li><a href="magazine.html#evenements">Événements &amp; partenariats</a></li>
+            <li><a href="magazine.html#guides">Nos guides</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+
+      <!-- Sélecteur de langue : FR actif, autres langues inactives dans le prototype -->
+      <div class="lang-switch has-dropdown">
+        <button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          FR<span class="nav-caret" aria-hidden="true"></span>
+          <span class="sr-only">Choisir la langue du site</span>
+        </button>
+        <ul class="dropdown dropdown--right">
+          <li><button type="button" class="lang-option is-current" aria-current="true" lang="fr">FR · Français</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="en">EN · English</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="sv">SV · Svenska</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="no">NO · Norsk</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="da">DA · Dansk</button></li>
+        </ul>
+      </div>
+
+      <a class="btn btn-primary btn--small header-cta" href="tel:+33493000000">Nous appeler</a>
+
+      <button type="button" class="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Panneau de navigation mobile (plein écran, ouvert par le burger) -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
+  <div class="mobile-nav-head">
+    <span class="logo"><span class="logo-name">Wretman</span><span class="logo-estate">Estate</span></span>
+    <button type="button" class="mobile-nav-close" aria-label="Fermer le menu">&times;</button>
+  </div>
+
+  <ul class="mobile-nav-list">
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-acheter">
+        Acheter<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-acheter" hidden>
+        <li><a href="acheter.html#types">Par types de biens</a></li>
+        <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+        <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+        <li><a href="acheter.html">Voir tous nos biens</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-vendre">
+        Vendre<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-vendre" hidden>
+        <li><a href="vendre.html#estimation">Estimation</a></li>
+        <li><a href="contact.html">Nous rencontrer</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-wretman">
+        Wretman<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-wretman" hidden>
+        <li><a href="wretman.html#histoire">Notre histoire</a></li>
+        <li><a href="equipe.html">Notre équipe</a></li>
+        <li><a href="wretman.html#services">Nos services</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
+
+    <li><a href="agences.html">Nos agences</a></li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-magazine">
+        Magazine<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-magazine" hidden>
+        <li><a href="magazine.html#articles">Articles</a></li>
+        <li><a href="magazine.html#presse">Presse &amp; médias</a></li>
+        <li><a href="magazine.html#evenements">Événements &amp; partenariats</a></li>
+        <li><a href="magazine.html#guides">Nos guides</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="mobile-nav-footer">
+    <p class="mobile-nav-lang" aria-label="Langues du site">
+      <span class="is-current" lang="fr">FR</span>
+      <span title="Disponible dans la version finale" lang="en">EN</span>
+      <span title="Disponible dans la version finale" lang="sv">SV</span>
+      <span title="Disponible dans la version finale" lang="no">NO</span>
+      <span title="Disponible dans la version finale" lang="da">DA</span>
+    </p>
+    <a class="btn btn-primary btn--block" href="tel:+33493000000">Nous appeler</a>
+  </div>
+</nav>
+
+<main id="contenu">
+
+  <!-- ============================================================
+       1. HERO plein viewport + barre de recherche
+  ============================================================ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <img class="hero-bg"
+         src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+         alt="Villa contemporaine avec piscine surplombant la Méditerranée, à Cannes">
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container hero-content">
+      <p class="kicker kicker--light">Agence franco-scandinave — Côte d'Azur &amp; Provence</p>
+      <h1 id="hero-title">L'art de vivre la Riviera</h1>
+      <p class="hero-sub">Villas, penthouses et domaines d'exception, choisis et accompagnés avec l'exigence scandinave.</p>
+
+      <form class="hero-search" action="acheter.html" method="get" aria-label="Rechercher un bien">
+        <div class="form-field">
+          <label class="form-label" for="hero-lieu">Lieu</label>
+          <select class="form-select" id="hero-lieu" name="lieu">
+            <option value="">Toutes les villes</option>
+            <option value="cannes">Cannes</option>
+            <option value="nice">Nice</option>
+            <option value="antibes">Antibes</option>
+            <option value="menton">Menton</option>
+            <option value="vence">Vence</option>
+            <option value="valbonne">Valbonne</option>
+            <option value="montauroux">Montauroux</option>
+            <option value="lorgues">Lorgues</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="hero-type">Type de bien</label>
+          <select class="form-select" id="hero-type" name="type">
+            <option value="">Tous les biens</option>
+            <option value="appartement">Appartement</option>
+            <option value="villa">Villa / Maison</option>
+            <option value="penthouse">Penthouse</option>
+            <option value="bastide">Bastide / Mas</option>
+            <option value="terrain">Terrain</option>
+            <option value="domaine">Domaine viticole</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="hero-budget">Budget max (euros)</label>
+          <input class="form-input" type="number" id="hero-budget" name="budget" min="0" step="50000" placeholder="3 000 000">
+        </div>
+        <button class="btn btn-primary" type="submit">Rechercher</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. BANDEAU CHIFFRES CLÉS
+  ============================================================ -->
+  <section class="stats" aria-label="Wretman Estate en chiffres">
+    <div class="container stats-grid">
+      <div><p class="stat-number">20+</p><p class="stat-label">Années d'expérience</p></div>
+      <div><p class="stat-number">8</p><p class="stat-label">Agences sur la Riviera</p></div>
+      <div><p class="stat-number">50+</p><p class="stat-label">Experts à votre écoute</p></div>
+      <div><p class="stat-number">16+</p><p class="stat-label">Langues parlées</p></div>
+      <div><p class="stat-number">250+</p><p class="stat-label">Ventes par an</p></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3. CARROUSEL EXCLUSIVITÉS (3 biens)
+  ============================================================ -->
+  <section class="section" aria-labelledby="exclusivites-title">
+    <div class="container">
+      <div class="carousel" data-carousel>
+        <div class="carousel-head">
+          <div class="section-head">
+            <span class="kicker">Exclusivités</span>
+            <h2 id="exclusivites-title">Nos biens en exclusivité</h2>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="icon-btn carousel-btn" data-carousel-prev aria-label="Faire défiler vers la gauche">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button type="button" class="icon-btn carousel-btn" data-carousel-next aria-label="Faire défiler vers la droite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-track">
+          <a class="prop-card" href="bien.html">
+            <div class="prop-card-media">
+              <span class="prop-card-badge badge badge--bordeaux">Exclusivité</span>
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Villa contemporaine vue mer panoramique à Cannes, quartier Californie">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Cannes (Californie)</p>
+              <h3 class="prop-card-title">Villa contemporaine vue mer panoramique</h3>
+              <p class="prop-card-prix">4 850 000 €</p>
+              <p class="prop-card-specs"><span>5 chambres</span><span>320 m²</span><span>Piscine</span></p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html">
+            <div class="prop-card-media">
+              <span class="prop-card-badge badge badge--bordeaux">Exclusivité</span>
+              <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Villa pieds dans l'eau avec piscine à débordement, au Cap de Nice">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Cap de Nice</p>
+              <h3 class="prop-card-title">Villa pieds dans l'eau</h3>
+              <p class="prop-card-prix">6 900 000 €</p>
+              <p class="prop-card-specs"><span>6 chambres</span><span>410 m²</span><span>Accès mer privé</span></p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html">
+            <div class="prop-card-media">
+              <span class="prop-card-badge badge badge--bordeaux">Exclusivité</span>
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Bastide en pierre entourée de vignes, à Lorgues en Provence">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Lorgues</p>
+              <h3 class="prop-card-title">Bastide au cœur des vignes</h3>
+              <p class="prop-card-prix">3 750 000 €</p>
+              <p class="prop-card-specs"><span>7 chambres</span><span>380 m²</span><span>Domaine 4 ha</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. DUO CARDS ACHETER / VENDRE
+  ============================================================ -->
+  <section class="section section--alt" aria-labelledby="projets-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="kicker">Votre projet</span>
+        <h2 id="projets-title">Acheter ou vendre, en toute sérénité</h2>
+      </div>
+
+      <div class="grid-2">
+        <a class="image-card" href="acheter.html">
+          <img class="image-card-bg"
+               src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+               alt="Architecture blanche et épurée d'une villa méditerranéenne">
+          <div class="image-card-content">
+            <h3>Acheter</h3>
+            <p>Une sélection rigoureuse de biens d'exception, de Cannes à la Provence verte, et un accompagnement dans votre langue.</p>
+            <span class="btn btn-light">Découvrir nos biens</span>
+          </div>
+        </a>
+
+        <a class="image-card" href="vendre.html">
+          <img class="image-card-bg"
+               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+               alt="Façade élégante d'une maison de prestige au soleil couchant">
+          <div class="image-card-content">
+            <h3>Vendre</h3>
+            <p>Estimation confidentielle, mise en valeur premium et diffusion auprès d'une clientèle internationale qualifiée.</p>
+            <span class="btn btn-light">Faire estimer mon bien</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. CARROUSEL COUPS DE CŒUR (4 biens)
+  ============================================================ -->
+  <section class="section" aria-labelledby="coups-de-coeur-title">
+    <div class="container">
+      <div class="carousel" data-carousel>
+        <div class="carousel-head">
+          <div class="section-head">
+            <span class="kicker">Sélection</span>
+            <h2 id="coups-de-coeur-title">Nos coups de cœur</h2>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="icon-btn carousel-btn" data-carousel-prev aria-label="Faire défiler vers la gauche">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button type="button" class="icon-btn carousel-btn" data-carousel-next aria-label="Faire défiler vers la droite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-track">
+          <a class="prop-card" href="bien.html">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Penthouse lumineux avec grande terrasse face à la Croisette, à Cannes">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Cannes</p>
+              <h3 class="prop-card-title">Penthouse face à la Croisette</h3>
+              <p class="prop-card-prix">3 200 000 €</p>
+              <p class="prop-card-specs"><span>3 chambres</span><span>145 m²</span><span>Terrasse 60 m²</span></p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Mas provençal rénové avec piscine et jardin paysager, à Valbonne">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Valbonne</p>
+              <h3 class="prop-card-title">Mas provençal entièrement rénové</h3>
+              <p class="prop-card-prix">2 450 000 €</p>
+              <p class="prop-card-specs"><span>4 chambres</span><span>240 m²</span><span>Terrain 2 800 m²</span></p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Villa californienne aux larges baies vitrées ouvertes sur les collines, à Vence">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Vence</p>
+              <h3 class="prop-card-title">Villa californienne vue collines</h3>
+              <p class="prop-card-prix">1 950 000 €</p>
+              <p class="prop-card-specs"><span>4 chambres</span><span>210 m²</span><span>Piscine</span></p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Séjour contemporain d'un penthouse donnant sur le port de Menton">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Menton</p>
+              <h3 class="prop-card-title">Penthouse contemporain sur le port</h3>
+              <p class="prop-card-prix">1 590 000 €</p>
+              <p class="prop-card-specs"><span>3 chambres</span><span>128 m²</span><span>Vue mer</span></p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center mt-40">
+        <a class="btn btn-ghost" href="acheter.html">Voir tous nos biens</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. SECTION ADN SCANDINAVE
+  ============================================================ -->
+  <section class="section section--alt" aria-labelledby="adn-title">
+    <div class="container">
+      <div class="grid-2 adn-grid">
+        <div class="adn-media">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+               alt="Plage de sable clair et eau turquoise de la Méditerranée sous le soleil">
+        </div>
+        <div>
+          <span class="kicker">Notre ADN</span>
+          <h2 id="adn-title">L'exigence scandinave, l'âme de la Riviera</h2>
+          <p>Fondée par Johan et Filip Wretman, notre maison cultive depuis vingt ans une approche rare de l'immobilier de prestige : sobre, transparente et profondément humaine. Chaque projet est mené comme une relation de confiance, jamais comme une simple transaction.</p>
+          <p class="text-grey">Cette double culture nous permet d'accompagner une clientèle unique en son genre :</p>
+          <ul class="adn-points">
+            <li>Un tiers de clients locaux, attachés à leur région</li>
+            <li>Un tiers de clients internationaux, séduits par la Riviera</li>
+            <li>Un tiers de clients scandinaves, accompagnés dans leur langue</li>
+          </ul>
+          <a class="btn btn-ghost" href="wretman.html">Découvrir Wretman</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. CARROUSEL AVIS GOOGLE (5 avis)
+  ============================================================ -->
+  <section class="section" aria-labelledby="avis-title">
+    <div class="container">
+      <div class="carousel" data-carousel>
+        <div class="carousel-head">
+          <div class="section-head">
+            <span class="kicker">Ils nous font confiance</span>
+            <h2 id="avis-title">L'avis de nos clients</h2>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="icon-btn carousel-btn" data-carousel-prev aria-label="Faire défiler vers la gauche">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button type="button" class="icon-btn carousel-btn" data-carousel-next aria-label="Faire défiler vers la droite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-track">
+          <article class="review-card">
+            <p class="stars" role="img" aria-label="Note de 5 étoiles sur 5">★★★★★</p>
+            <p class="review-text">Nous avons acheté notre maison à Valbonne sans jamais nous sentir perdus. Pouvoir tout traiter en suédois, du premier appel jusqu'à la signature chez le notaire, a tout changé.</p>
+            <p class="review-author">Lars E. — Stockholm</p>
+            <p class="review-source">Avis Google</p>
+          </article>
+
+          <article class="review-card">
+            <p class="stars" role="img" aria-label="Note de 5 étoiles sur 5">★★★★★</p>
+            <p class="review-text">Un accompagnement d'une rare qualité. L'équipe a compris immédiatement ce que nous cherchions et nous a évité bien des écueils administratifs en France.</p>
+            <p class="review-author">Birgitte H. — Copenhague</p>
+            <p class="review-source">Avis Google</p>
+          </article>
+
+          <article class="review-card">
+            <p class="stars" role="img" aria-label="Note de 5 étoiles sur 5">★★★★★</p>
+            <p class="review-text">La vente de notre appartement familial a été menée avec tact et efficacité. Des photos magnifiques, des acheteurs sérieux et un prix au rendez-vous.</p>
+            <p class="review-author">Marie-Claire D. — Nice</p>
+            <p class="review-source">Avis Google</p>
+          </article>
+
+          <article class="review-card">
+            <p class="stars" role="img" aria-label="Note de 5 étoiles sur 5">★★★★★</p>
+            <p class="review-text">Professionnalisme et chaleur humaine. Nos questions ont toujours trouvé réponse, même à distance depuis Oslo. Je recommande sans la moindre réserve.</p>
+            <p class="review-author">Anders N. — Oslo</p>
+            <p class="review-source">Avis Google</p>
+          </article>
+
+          <article class="review-card">
+            <p class="stars" role="img" aria-label="Note de 5 étoiles sur 5">★★★★★</p>
+            <p class="review-text">De la première visite à la remise des clés, tout fut d'une fluidité remarquable. On sent une vraie culture du service, discrète et attentive.</p>
+            <p class="review-author">Sophie &amp; Marc L. — Bruxelles</p>
+            <p class="review-source">Avis Google</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. CARROUSEL VIDÉOS YOUTUBE (4 vignettes)
+  ============================================================ -->
+  <section class="section section--alt" aria-labelledby="videos-title">
+    <div class="container">
+      <div class="carousel" data-carousel>
+        <div class="carousel-head">
+          <div class="section-head">
+            <span class="kicker">Visites privées</span>
+            <h2 id="videos-title">Découvrez nos biens en vidéo</h2>
+          </div>
+          <div class="carousel-nav">
+            <button type="button" class="icon-btn carousel-btn" data-carousel-prev aria-label="Faire défiler vers la gauche">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+            </button>
+            <button type="button" class="icon-btn carousel-btn" data-carousel-next aria-label="Faire défiler vers la droite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="carousel-track">
+          <a class="video-card" href="https://www.youtube.com/@wretmanestate" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Vignette vidéo : villa pieds dans l'eau au Cap de Nice">
+              <span class="video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5l13 7.5-13 7.5z"/></svg>
+              </span>
+            </div>
+            <p class="video-title">Visite privée — Villa Cap de Nice <span class="sr-only">(YouTube, nouvel onglet)</span></p>
+          </a>
+
+          <a class="video-card" href="https://www.youtube.com/@wretmanestate" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Vignette vidéo : penthouse face à la Croisette à Cannes">
+              <span class="video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5l13 7.5-13 7.5z"/></svg>
+              </span>
+            </div>
+            <p class="video-title">Visite privée — Penthouse sur la Croisette <span class="sr-only">(YouTube, nouvel onglet)</span></p>
+          </a>
+
+          <a class="video-card" href="https://www.youtube.com/@wretmanestate" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Vignette vidéo : mas provençal rénové à Valbonne">
+              <span class="video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5l13 7.5-13 7.5z"/></svg>
+              </span>
+            </div>
+            <p class="video-title">Visite privée — Mas provençal à Valbonne <span class="sr-only">(YouTube, nouvel onglet)</span></p>
+          </a>
+
+          <a class="video-card" href="https://www.youtube.com/@wretmanestate" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Vignette vidéo : bastide au cœur des vignes à Lorgues">
+              <span class="video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5l13 7.5-13 7.5z"/></svg>
+              </span>
+            </div>
+            <p class="video-title">Visite privée — Bastide de Lorgues <span class="sr-only">(YouTube, nouvel onglet)</span></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. TEASER MAGAZINE (3 articles)
+  ============================================================ -->
+  <section class="section" aria-labelledby="magazine-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Magazine</span>
+        <h2 id="magazine-title">Conseils, marché &amp; art de vivre</h2>
+      </div>
+
+      <div class="grid-3">
+        <a class="article-card" href="article.html">
+          <div class="article-card-media">
+            <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                 alt="Mer Méditerranée calme et horizon dégagé au lever du jour">
+          </div>
+          <div class="article-card-body">
+            <p class="article-card-meta"><span>Nos guides</span><span class="date">Juin 2026</span></p>
+            <h3 class="article-card-title">Préparer sa retraite sur la Côte d'Azur : le guide complet</h3>
+            <p class="article-card-excerpt">Fiscalité, choix du secteur, financement : toutes les clés pour faire de la Riviera le décor serein de votre nouvelle vie.</p>
+          </div>
+        </a>
+
+        <a class="article-card" href="article.html">
+          <div class="article-card-media">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                 alt="Terrasse de penthouse dominant la baie de Cannes">
+          </div>
+          <div class="article-card-body">
+            <p class="article-card-meta"><span>Articles</span><span class="date">Mai 2026</span></p>
+            <h3 class="article-card-title">Marché immobilier 2026 : la Côte d'Azur vue de Scandinavie</h3>
+            <p class="article-card-excerpt">Pourquoi les acquéreurs suédois, norvégiens et danois n'ont jamais été aussi présents entre Cannes et Menton. L'analyse de nos experts.</p>
+          </div>
+        </a>
+
+        <a class="article-card" href="article.html">
+          <div class="article-card-media">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                 alt="Bastide provençale entourée de vignes, nouvelle adresse de Wretman Estate à Lorgues">
+          </div>
+          <div class="article-card-body">
+            <p class="article-card-meta"><span>Presse &amp; médias</span><span class="date">Mai 2026</span></p>
+            <h3 class="article-card-title">Wretman Estate ouvre sa 8ᵉ agence à Lorgues</h3>
+            <p class="article-card-excerpt">Au cœur de la Provence Verte, notre nouvelle adresse confirme l'ancrage de la maison dans le Var et son attachement à l'arrière-pays.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center mt-40">
+        <a class="btn btn-ghost" href="magazine.html">Tout le magazine</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. BANDEAU CTA ESTIMATION
+  ============================================================ -->
+  <section class="cta-banner" aria-labelledby="cta-estimation-title">
+    <div class="container">
+      <span class="kicker kicker--light">Estimation offerte</span>
+      <h2 id="cta-estimation-title">Combien vaut votre bien aujourd'hui ?</h2>
+      <p>Recevez une estimation confidentielle et sans engagement, réalisée par l'expert Wretman de votre secteur.</p>
+      <a class="btn btn-light" href="vendre.html#estimation">Estimer mon bien</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container footer-grid">
+
+      <!-- Colonne 1 : marque -->
+      <div class="footer-col footer-brand">
+        <a class="logo" href="index.html" aria-label="Wretman Estate, retour à l'accueil">
+          <span class="logo-name">Wretman</span><span class="logo-estate">Estate</span>
+        </a>
+        <p class="footer-baseline">La plus grande agence immobilière franco-scandinave de France.</p>
+        <p class="footer-contact">
+          <a href="tel:+33493000000">+33 4 93 00 00 00</a>
+          <a href="mailto:contact@wretmanestate.com">contact@wretmanestate.com</a>
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram (lien factice)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook (lien factice)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-7.6h2.6l.4-3h-3V8.5c0-.87.24-1.46 1.49-1.46h1.6V4.36c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.9 1.41-3.9 4v2.16H7.6v3h2.65V21h3.15z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube (lien factice)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn (lien factice)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2 2 0 11-.02 4 2 2 0 01.02-4zM3.5 9h3v11.5h-3V9zm5.5 0h2.88v1.57h.04c.4-.76 1.38-1.57 2.85-1.57 3.05 0 3.61 2 3.61 4.62v6.88h-3v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.35 1.58-2.35 3.22v6.21H9V9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne 2 : Acheter -->
+      <nav class="footer-col" aria-label="Pied de page, acheter">
+        <h2 class="footer-title">Acheter</h2>
+        <ul>
+          <li><a href="acheter.html#types">Par types de biens</a></li>
+          <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+          <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+          <li><a href="acheter.html">Tous nos biens</a></li>
+        </ul>
+      </nav>
+
+      <!-- Colonne 3 : Vendre & Services -->
+      <nav class="footer-col" aria-label="Pied de page, vendre et services">
+        <h2 class="footer-title">Vendre &amp; Services</h2>
+        <ul>
+          <li><a href="vendre.html#estimation">Estimation</a></li>
+          <li><a href="contact.html">Nous rencontrer</a></li>
+          <li><a href="wretman.html#services">Nos services</a></li>
+          <li><a href="carrieres.html">Carrières</a></li>
+        </ul>
+      </nav>
+
+      <!-- Colonne 4 : Newsletter + brochure -->
+      <div class="footer-col">
+        <h2 class="footer-title">Newsletter</h2>
+        <form class="newsletter-form" data-fake-submit
+              data-success-message="Merci ! Vous êtes bien inscrit(e) à notre newsletter.">
+          <label class="form-label" for="newsletter-email">Votre adresse email</label>
+          <input class="newsletter-input" type="email" id="newsletter-email" name="email"
+                 placeholder="prenom@exemple.com" autocomplete="email" required>
+          <button class="btn btn-light btn--small" type="submit">S'abonner</button>
+        </form>
+        <button type="button" class="footer-brochure" data-modal-open="modal-brochure">
+          Recevoir notre brochure
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bloc villes SEO (pleine largeur) -->
+  <div class="footer-cities">
+    <div class="container">
+      <p class="footer-cities-group">
+        <span class="footer-cities-title">Côte d'Azur</span>
+        <a href="acheter.html">Cannes</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Le Cannet</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Mougins</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Antibes</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Juan-les-Pins</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Nice</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Villefranche-sur-Mer</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Menton</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Roquebrune-Cap-Martin</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Vence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Saint-Paul-de-Vence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Valbonne</a>
+      </p>
+      <p class="footer-cities-group">
+        <span class="footer-cities-title">Var &amp; Provence</span>
+        <a href="acheter.html">Montauroux</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Fayence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Lorgues</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Draguignan</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Saint-Tropez</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Sainte-Maxime</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Ligne légale -->
+  <div class="footer-legal">
+    <div class="container">
+      <p>&copy; 2026 Wretman Estate</p>
+      <ul>
+        <li><a href="#" aria-label="Mentions légales (lien factice)">Mentions légales</a></li>
+        <li><a href="#" aria-label="Politique de confidentialité (lien factice)">Politique de confidentialité</a></li>
+      </ul>
+      <p class="footer-proto">Prototype, maquette non contractuelle</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Flèche scroll-to-top (apparaît après 600 px de scroll) -->
+<button type="button" class="scroll-top" aria-label="Revenir en haut de la page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+    <path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/>
+  </svg>
+</button>
+
+<!-- Modal : créer une alerte recherche -->
+<div class="modal" id="modal-alerte" role="dialog" aria-modal="true" aria-labelledby="modal-alerte-title" hidden>
+  <div class="modal-overlay" data-modal-close></div>
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Fermer la fenêtre">&times;</button>
+    <h2 id="modal-alerte-title">Créer une alerte recherche</h2>
+    <p>Recevez en avant-première les biens correspondant à vos critères, directement par email.</p>
+    <p class="alert-recap" data-alert-recap>Vos critères — Lieu : toutes les villes · Type : tous les biens · Budget : sans limite</p>
+    <form data-fake-submit
+          data-success-message="Votre alerte est créée. Vous recevrez nos nouveaux biens correspondant à vos critères dès leur publication.">
+      <div class="form-field">
+        <label class="form-label" for="alerte-email">Votre adresse email</label>
+        <input class="form-input" type="email" id="alerte-email" name="email"
+               placeholder="prenom@exemple.com" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label class="checkbox">
+          <input type="checkbox" name="consentement" required>
+          <span>J'accepte de recevoir les nouveaux biens et actualités de Wretman Estate.</span>
+        </label>
+      </div>
+      <button class="btn btn-primary btn--block" type="submit">Créer mon alerte</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal : recevoir la brochure digitale -->
+<div class="modal" id="modal-brochure" role="dialog" aria-modal="true" aria-labelledby="modal-brochure-title" hidden>
+  <div class="modal-overlay" data-modal-close></div>
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Fermer la fenêtre">&times;</button>
+    <h2 id="modal-brochure-title">Recevoir notre brochure</h2>
+    <p>Découvrez Wretman Estate, nos services et une sélection de biens d'exception dans notre brochure digitale.</p>
+    <form data-fake-submit
+          data-success-message="Merci ! Votre brochure digitale vient de vous être envoyée par email.">
+      <div class="form-field">
+        <label class="form-label" for="brochure-nom">Votre nom</label>
+        <input class="form-input" type="text" id="brochure-nom" name="nom"
+               autocomplete="name" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="brochure-email">Votre adresse email</label>
+        <input class="form-input" type="email" id="brochure-email" name="email"
+               placeholder="prenom@exemple.com" autocomplete="email" required>
+      </div>
+      <button class="btn btn-primary btn--block" type="submit">Recevoir la brochure</button>
+    </form>
+      <p class="modal-alt"><a href="#" aria-label="Consulter la brochure en ligne (lien factice)">Consulter la brochure en ligne</a></p>
+  </div>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

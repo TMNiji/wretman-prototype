@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wretman Estate | L'agence — Notre histoire &amp; nos services</title>
+  <meta name="description" content="Découvrez Wretman Estate : vingt ans d'histoire franco-scandinave sur la Côte d'Azur, huit agences, une équipe multilingue et six services dédiés à votre projet immobilier.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Ajustements propres à la page L'agence -->
+  <style>
+
+    .histoire-img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      aspect-ratio: 4 / 5;
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="index.html" aria-label="Wretman Estate, retour à l'accueil">
+      <span class="logo-name">Wretman</span><span class="logo-estate">Estate</span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <ul class="nav-list">
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="acheter.html" aria-haspopup="true">Acheter<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="acheter.html#types">Par types de biens</a></li>
+            <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+            <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+            <li><a href="acheter.html">Voir tous nos biens</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="vendre.html" aria-haspopup="true">Vendre<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="vendre.html#estimation">Estimation</a></li>
+            <li><a href="contact.html">Nous rencontrer</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link is-active" href="wretman.html" aria-haspopup="true">Wretman<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="wretman.html#histoire">Notre histoire</a></li>
+            <li><a href="equipe.html">Notre équipe</a></li>
+            <li><a href="wretman.html#services">Nos services</a></li>
+            <li><a href="carrieres.html">Carrières</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="agences.html">Nos agences</a>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="magazine.html" aria-haspopup="true">Magazine<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="magazine.html#articles">Articles</a></li>
+            <li><a href="magazine.html#presse">Presse &amp; médias</a></li>
+            <li><a href="magazine.html#evenements">Événements &amp; partenariats</a></li>
+            <li><a href="magazine.html#guides">Nos guides</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+
+      <!-- Sélecteur de langue : FR actif, autres langues inactives dans le prototype -->
+      <div class="lang-switch has-dropdown">
+        <button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          FR<span class="nav-caret" aria-hidden="true"></span>
+          <span class="sr-only">Choisir la langue du site</span>
+        </button>
+        <ul class="dropdown dropdown--right">
+          <li><button type="button" class="lang-option is-current" aria-current="true" lang="fr">FR · Français</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="en">EN · English</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="sv">SV · Svenska</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="no">NO · Norsk</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="da">DA · Dansk</button></li>
+        </ul>
+      </div>
+
+      <a class="btn btn-primary btn--small header-cta" href="tel:+33493000000">Nous appeler</a>
+
+      <button type="button" class="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Panneau de navigation mobile (plein écran, ouvert par le burger) -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
+  <div class="mobile-nav-head">
+    <span class="logo"><span class="logo-name">Wretman</span><span class="logo-estate">Estate</span></span>
+    <button type="button" class="mobile-nav-close" aria-label="Fermer le menu">&times;</button>
+  </div>
+
+  <ul class="mobile-nav-list">
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-acheter">
+        Acheter<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-acheter" hidden>
+        <li><a href="acheter.html#types">Par types de biens</a></li>
+        <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+        <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+        <li><a href="acheter.html">Voir tous nos biens</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-vendre">
+        Vendre<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-vendre" hidden>
+        <li><a href="vendre.html#estimation">Estimation</a></li>
+        <li><a href="contact.html">Nous rencontrer</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle is-active" aria-expanded="false" aria-controls="msub-wretman">
+        Wretman<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-wretman" hidden>
+        <li><a href="wretman.html#histoire">Notre histoire</a></li>
+        <li><a href="equipe.html">Notre équipe</a></li>
+        <li><a href="wretman.html#services">Nos services</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
+
+    <li><a href="agences.html">Nos agences</a></li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-magazine">
+        Magazine<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-magazine" hidden>
+        <li><a href="magazine.html#articles">Articles</a></li>
+        <li><a href="magazine.html#presse">Presse &amp; médias</a></li>
+        <li><a href="magazine.html#evenements">Événements &amp; partenariats</a></li>
+        <li><a href="magazine.html#guides">Nos guides</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="mobile-nav-footer">
+    <p class="mobile-nav-lang" aria-label="Langues du site">
+      <span class="is-current" lang="fr">FR</span>
+      <span title="Disponible dans la version finale" lang="en">EN</span>
+      <span title="Disponible dans la version finale" lang="sv">SV</span>
+      <span title="Disponible dans la version finale" lang="no">NO</span>
+      <span title="Disponible dans la version finale" lang="da">DA</span>
+    </p>
+    <a class="btn btn-primary btn--block" href="tel:+33493000000">Nous appeler</a>
+  </div>
+</nav>
+
+<main id="contenu">
+
+  <!-- ====================================================
+       PAGE-HERO — L'agence
+  ==================================================== -->
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li><span aria-current="page">Wretman Estate</span></li>
+        </ol>
+      </nav>
+      <span class="kicker">L'agence</span>
+      <h1>L'esprit scandinave, l'art de vivre de la Riviera</h1>
+      <p>Depuis 2006, Wretman Estate réunit deux cultures autour d'une même passion : accompagner, en toute confiance, celles et ceux qui choisissent la Côte d'Azur et la Provence.</p>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       NOTRE HISTOIRE  #histoire
+  ==================================================== -->
+  <section class="section" id="histoire" aria-labelledby="histoire-title">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <div class="section-head">
+            <span class="kicker">Notre histoire</span>
+            <h2 id="histoire-title">Une histoire de famille, entre la Suède et la Méditerranée</h2>
+          </div>
+          <p>En 2006, Johan Wretman quitte Stockholm et ouvre une première agence rue d'Antibes, à Cannes, avec une conviction simple : les acquéreurs scandinaves méritent, sur la Riviera, la même exigence de transparence et de sérénité que chez eux.</p>
+          <p>Rejoint par son fils Filip, partenaire associé, il bâtit pas à pas une maison familiale où chaque client — qu'il vienne de Nice, d'Oslo ou de Copenhague — est reçu dans sa langue et accompagné comme un proche. Aujourd'hui, notre clientèle se compose pour un tiers d'acheteurs locaux, un tiers d'internationaux et un tiers de Scandinaves.</p>
+          <p>Vingt ans plus tard, Wretman Estate est devenue la plus grande agence immobilière franco-scandinave de France : huit agences entre mer et vignes, plus de cinquante experts et une fidélité intacte à l'esprit des débuts.</p>
+        </div>
+        <div>
+          <img class="histoire-img"
+               src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+               alt="Façade d'une villa blanche aux lignes épurées sous le soleil méditerranéen, illustrant l'esthétique scandinave de Wretman Estate.">
+        </div>
+      </div>
+
+      <!-- Mini-timeline 2006 → 2026 -->
+      <ol class="timeline mt-56">
+        <li class="timeline-step">
+          <h3 class="timeline-title">2006 — La fondation</h3>
+          <p class="timeline-text">Johan Wretman ouvre la première agence à Cannes, rue d'Antibes, et pose les bases d'une maison franco-scandinave.</p>
+        </li>
+        <li class="timeline-step">
+          <h3 class="timeline-title">2012 — Cinq agences</h3>
+          <p class="timeline-text">Le réseau s'étend le long de la Côte d'Azur, de Nice à Menton, porté par une clientèle internationale fidèle.</p>
+        </li>
+        <li class="timeline-step">
+          <h3 class="timeline-title">2020 — Cap sur le Var</h3>
+          <p class="timeline-text">Wretman Estate s'ancre en Provence, à Montauroux, et ouvre ses portes au charme de l'arrière-pays.</p>
+        </li>
+        <li class="timeline-step">
+          <h3 class="timeline-title">2026 — Huit agences</h3>
+          <p class="timeline-text">Avec Lorgues, huitième adresse au cœur des vignes, la maison confirme sa place de référence franco-scandinave.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       4 PILIERS DE DIFFÉRENCIATION
+  ==================================================== -->
+  <section class="section section--alt" aria-labelledby="piliers-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="kicker">Ce qui nous distingue</span>
+        <h2 id="piliers-title">Quatre piliers, une même exigence</h2>
+      </div>
+
+      <div class="grid-4">
+        <div class="info-card info-card--plain">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 2v20M2 12h20M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/>
+            <circle cx="12" cy="12" r="3.2"/>
+          </svg>
+          <h3>Identité scandinave unique</h3>
+          <p>Une maison fondée par une famille suédoise, où la rigueur, la transparence et la discrétion nordiques rencontrent la douceur de vivre méditerranéenne.</p>
+        </div>
+
+        <div class="info-card info-card--plain">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/>
+            <circle cx="12" cy="10" r="2.6"/>
+          </svg>
+          <h3>Présence locale forte</h3>
+          <p>Huit agences de Cannes à Lorgues : des équipes qui vivent dans leurs quartiers, connaissent chaque rue et chaque colline de leur secteur.</p>
+        </div>
+
+        <div class="info-card info-card--plain">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 12h6l2 4 4-8 2 4h4"/>
+            <path d="M3 19h18M3 5h18"/>
+          </svg>
+          <h3>Accompagnement de A à Z</h3>
+          <p>De la première visite à la signature chez le notaire — et bien après — un seul interlocuteur veille sur chaque étape de votre projet.</p>
+        </div>
+
+        <div class="info-card info-card--plain">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/>
+          </svg>
+          <h3>Équipe multilingue, 16+ langues</h3>
+          <p>Français, suédois, norvégien, danois, anglais… plus de seize langues parlées pour que chaque échange se fasse naturellement, sans intermédiaire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       NOS SERVICES  #services
+  ==================================================== -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Nos services</span>
+        <h2 id="services-title">Six expertises au service de votre projet</h2>
+        <p>Acheter, vendre, estimer, s'installer : quel que soit votre projet, nos équipes mettent leur savoir-faire à votre service, en toute confidentialité.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="7"/>
+            <path d="M21 21l-5-5M7.5 10.5l3-2.6 3 2.6M8.6 10v3h3.8v-3"/>
+          </svg>
+          <h3>Chasse de biens &amp; recherche exclusive</h3>
+          <p>Nous recherchons pour vous le bien rare, y compris hors marché, selon un cahier des charges précis et en toute discrétion.</p>
+        </div>
+
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="8" cy="14" r="4.5"/>
+            <path d="M11.5 10.5L20 2M16 6l2.5 2.5M13.5 8.5L16 11"/>
+          </svg>
+          <h3>Transaction</h3>
+          <p>Vente et acquisition orchestrées de bout en bout : qualification des acquéreurs, visites, négociation et sécurisation juridique.</p>
+        </div>
+
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 4v3M12 4L4 8v2h16V8l-8-4zM6 10v7M10 10v7M14 10v7M18 10v7M4 19h16"/>
+          </svg>
+          <h3>Estimation</h3>
+          <p>Une évaluation rigoureuse et gratuite de votre bien, fondée sur vingt ans de ventes réalisées sur la Côte d'Azur et en Provence.</p>
+        </div>
+
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M4 5h13a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-6l-5 4v-4H6a3 3 0 0 1-3-3V8a3 3 0 0 1 1-3z"/>
+            <path d="M8 10h8M8 13h5"/>
+          </svg>
+          <h3>Accompagnement &amp; conseils</h3>
+          <p>Fiscalité, notaire, financement, installation en France : nous vous guidons à chaque étape, dans votre langue, avec pédagogie.</p>
+        </div>
+
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="3" y="7" width="18" height="13" rx="2"/>
+            <path d="M9 7l1.5-3h3L15 7M12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+          </svg>
+          <h3>Marketing &amp; visibilité</h3>
+          <p>Photographies d'art, vidéos, diffusion internationale et événements privés : votre bien est mis en valeur comme il le mérite.</p>
+        </div>
+
+        <div class="info-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/>
+            <path d="M10.8 7.2L6.2 15.8M13.2 7.2l4.6 8.6M7.5 18h9"/>
+          </svg>
+          <h3>Réseau de compétences</h3>
+          <p>Architectes, artisans, gestionnaires, conseillers juridiques : un cercle de partenaires éprouvés, mobilisable dès la remise des clés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       TEASER ÉQUIPE → equipe.html
+  ==================================================== -->
+  <section class="section section--alt" aria-labelledby="equipe-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Notre équipe</span>
+        <h2 id="equipe-title">Des visages avant des adresses</h2>
+        <p>Plus de cinquante experts, seize langues parlées, une même attention. Faites connaissance avec quelques-uns d'entre eux.</p>
+      </div>
+
+      <div class="grid-4">
+        <article class="agent-card">
+          <div class="agent-photo">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                 alt="Portrait de Johan Wretman, fondateur de Wretman Estate.">
+          </div>
+          <div class="agent-body">
+            <h3 class="agent-name">Johan Wretman</h3>
+            <p class="agent-role">Fondateur</p>
+            <p class="agent-agence">Agence de Cannes</p>
+            <ul class="agent-langs" aria-label="Langues parlées"><li class="lang-badge">SV<span class="sr-only"> Suédois</span></li><li class="lang-badge">EN<span class="sr-only"> Anglais</span></li><li class="lang-badge">FR<span class="sr-only"> Français</span></li></ul>
+            <div class="agent-actions">
+              <a class="icon-btn" href="https://wa.me/33600000000" target="_blank" rel="noopener" aria-label="Contacter Johan Wretman sur WhatsApp (nouvel onglet)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.1 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zM9 7.9c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.1-.2 0-.4.1-.5l.6-.7c.2-.2.2-.4.1-.6L10 8.4c-.2-.5-.4-.5-.6-.5H9z"/></svg>
+              </a>
+              <a class="icon-btn" href="tel:+33493000000" aria-label="Appeler Johan Wretman">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l1.5 4.5L8 10a13 13 0 0 0 6 6l1.5-2.5L20 15v4a1.5 1.5 0 0 1-1.6 1.5C10.4 19.9 4.1 13.6 3.5 5.6A1.5 1.5 0 0 1 5 4z"/></svg>
+              </a>
+              <a class="icon-btn" href="mailto:johan@wretmanestate.com" aria-label="Écrire un email à Johan Wretman">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="agent-card">
+          <div class="agent-photo">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                 alt="Portrait de Filip Wretman, partenaire associé de Wretman Estate.">
+          </div>
+          <div class="agent-body">
+            <h3 class="agent-name">Filip Wretman</h3>
+            <p class="agent-role">Partenaire Associé</p>
+            <p class="agent-agence">Agence de Cannes</p>
+            <ul class="agent-langs" aria-label="Langues parlées"><li class="lang-badge">SV<span class="sr-only"> Suédois</span></li><li class="lang-badge">EN<span class="sr-only"> Anglais</span></li><li class="lang-badge">FR<span class="sr-only"> Français</span></li></ul>
+            <div class="agent-actions">
+              <a class="icon-btn" href="https://wa.me/33600000000" target="_blank" rel="noopener" aria-label="Contacter Filip Wretman sur WhatsApp (nouvel onglet)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.1 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zM9 7.9c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.1-.2 0-.4.1-.5l.6-.7c.2-.2.2-.4.1-.6L10 8.4c-.2-.5-.4-.5-.6-.5H9z"/></svg>
+              </a>
+              <a class="icon-btn" href="tel:+33493000000" aria-label="Appeler Filip Wretman">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l1.5 4.5L8 10a13 13 0 0 0 6 6l1.5-2.5L20 15v4a1.5 1.5 0 0 1-1.6 1.5C10.4 19.9 4.1 13.6 3.5 5.6A1.5 1.5 0 0 1 5 4z"/></svg>
+              </a>
+              <a class="icon-btn" href="mailto:filip@wretmanestate.com" aria-label="Écrire un email à Filip Wretman">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="agent-card">
+          <div class="agent-photo">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                 alt="Portrait d'Elsa Lindqvist, directrice de l'agence de Cannes.">
+          </div>
+          <div class="agent-body">
+            <h3 class="agent-name">Elsa Lindqvist</h3>
+            <p class="agent-role">Directrice d'agence</p>
+            <p class="agent-agence">Agence de Cannes</p>
+            <ul class="agent-langs" aria-label="Langues parlées"><li class="lang-badge">SV<span class="sr-only"> Suédois</span></li><li class="lang-badge">NO<span class="sr-only"> Norvégien</span></li><li class="lang-badge">EN<span class="sr-only"> Anglais</span></li><li class="lang-badge">FR<span class="sr-only"> Français</span></li></ul>
+            <div class="agent-actions">
+              <a class="icon-btn" href="https://wa.me/33600000000" target="_blank" rel="noopener" aria-label="Contacter Elsa Lindqvist sur WhatsApp (nouvel onglet)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.1 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zM9 7.9c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.1-.2 0-.4.1-.5l.6-.7c.2-.2.2-.4.1-.6L10 8.4c-.2-.5-.4-.5-.6-.5H9z"/></svg>
+              </a>
+              <a class="icon-btn" href="tel:+33493000000" aria-label="Appeler Elsa Lindqvist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l1.5 4.5L8 10a13 13 0 0 0 6 6l1.5-2.5L20 15v4a1.5 1.5 0 0 1-1.6 1.5C10.4 19.9 4.1 13.6 3.5 5.6A1.5 1.5 0 0 1 5 4z"/></svg>
+              </a>
+              <a class="icon-btn" href="mailto:elsa@wretmanestate.com" aria-label="Écrire un email à Elsa Lindqvist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="agent-card">
+          <div class="agent-photo">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                 alt="Portrait d'Antoine Moreau, conseiller immobilier à Nice.">
+          </div>
+          <div class="agent-body">
+            <h3 class="agent-name">Antoine Moreau</h3>
+            <p class="agent-role">Conseiller immobilier</p>
+            <p class="agent-agence">Agence de Nice</p>
+            <ul class="agent-langs" aria-label="Langues parlées"><li class="lang-badge">FR<span class="sr-only"> Français</span></li><li class="lang-badge">EN<span class="sr-only"> Anglais</span></li></ul>
+            <div class="agent-actions">
+              <a class="icon-btn" href="https://wa.me/33600000000" target="_blank" rel="noopener" aria-label="Contacter Antoine Moreau sur WhatsApp (nouvel onglet)">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 1.8a8.2 8.2 0 1 1-4.1 15.3l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 0 1 12 3.8zM9 7.9c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.5 3.9 2.2.9 2.7.7 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.1-.2 0-.4.1-.5l.6-.7c.2-.2.2-.4.1-.6L10 8.4c-.2-.5-.4-.5-.6-.5H9z"/></svg>
+              </a>
+              <a class="icon-btn" href="tel:+33493000000" aria-label="Appeler Antoine Moreau">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l1.5 4.5L8 10a13 13 0 0 0 6 6l1.5-2.5L20 15v4a1.5 1.5 0 0 1-1.6 1.5C10.4 19.9 4.1 13.6 3.5 5.6A1.5 1.5 0 0 1 5 4z"/></svg>
+              </a>
+              <a class="icon-btn" href="mailto:antoine@wretmanestate.com" aria-label="Écrire un email à Antoine Moreau">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="text-center mt-40">
+        <a class="btn btn-ghost" href="equipe.html">Rencontrer toute l'équipe</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       TEASER CARRIÈRES → carrieres.html
+  ==================================================== -->
+  <section class="section section--tight" aria-labelledby="carrieres-title">
+    <div class="container">
+      <div class="image-card">
+        <img class="image-card-bg"
+             src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&amp;fit=crop&amp;w=1600&amp;q=80"
+             alt="Plage de sable bordée par la Méditerranée turquoise, cadre de vie des équipes Wretman Estate sur la Côte d'Azur.">
+        <div class="image-card-content">
+          <span class="kicker kicker--light">Carrières</span>
+          <h3 id="carrieres-title">Et si votre prochain bureau donnait sur la Méditerranée ?</h3>
+          <p>Conseillers, directeurs d'agence, fonctions support : nous recherchons des personnalités qui partagent notre goût de l'humain et de l'excellence.</p>
+          <a class="btn btn-light" href="carrieres.html">Découvrir nos opportunités</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================
+       CTA BROCHURE (modal)
+  ==================================================== -->
+  <section class="cta-banner" aria-labelledby="brochure-title">
+    <div class="container">
+      <span class="kicker kicker--light">Brochure digitale</span>
+      <h2 id="brochure-title">Wretman Estate en quelques pages</h2>
+      <p>Notre histoire, nos services et une sélection de biens d'exception, réunis dans une brochure élégante envoyée directement par email.</p>
+      <button type="button" class="btn btn-light" data-modal-open="modal-brochure">Recevoir notre brochure</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container footer-grid">
+
+      <!-- Colonne 1 : marque -->
+      <div class="footer-col footer-brand">
+        <a class="logo" href="index.html" aria-label="Wretman Estate, retour à l'accueil">
+          <span class="logo-name">Wretman</span><span class="logo-estate">Estate</span>
+        </a>
+        <p class="footer-baseline">La plus grande agence immobilière franco-scandinave de France.</p>
+        <p class="footer-contact">
+          <a href="tel:+33493000000">+33 4 93 00 00 00</a>
+          <a href="mailto:contact@wretmanestate.com">contact@wretmanestate.com</a>
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram (lien factice)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook (lien factice)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-7.6h2.6l.4-3h-3V8.5c0-.87.24-1.46 1.49-1.46h1.6V4.36c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.9 1.41-3.9 4v2.16H7.6v3h2.65V21h3.15z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube (lien factice)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn (lien factice)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2 2 0 11-.02 4 2 2 0 01.02-4zM3.5 9h3v11.5h-3V9zm5.5 0h2.88v1.57h.04c.4-.76 1.38-1.57 2.85-1.57 3.05 0 3.61 2 3.61 4.62v6.88h-3v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.35 1.58-2.35 3.22v6.21H9V9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne 2 : Acheter -->
+      <nav class="footer-col" aria-label="Pied de page, acheter">
+        <h2 class="footer-title">Acheter</h2>
+        <ul>
+          <li><a href="acheter.html#types">Par types de biens</a></li>
+          <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+          <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+          <li><a href="acheter.html">Tous nos biens</a></li>
+        </ul>
+      </nav>
+
+      <!-- Colonne 3 : Vendre & Services -->
+      <nav class="footer-col" aria-label="Pied de page, vendre et services">
+        <h2 class="footer-title">Vendre &amp; Services</h2>
+        <ul>
+          <li><a href="vendre.html#estimation">Estimation</a></li>
+          <li><a href="contact.html">Nous rencontrer</a></li>
+          <li><a href="wretman.html#services">Nos services</a></li>
+          <li><a href="carrieres.html">Carrières</a></li>
+        </ul>
+      </nav>
+
+      <!-- Colonne 4 : Newsletter + brochure -->
+      <div class="footer-col">
+        <h2 class="footer-title">Newsletter</h2>
+        <form class="newsletter-form" data-fake-submit
+              data-success-message="Merci ! Vous êtes bien inscrit(e) à notre newsletter.">
+          <label class="form-label" for="newsletter-email">Votre adresse email</label>
+          <input class="newsletter-input" type="email" id="newsletter-email" name="email"
+                 placeholder="prenom@exemple.com" autocomplete="email" required>
+          <button class="btn btn-light btn--small" type="submit">S'abonner</button>
+        </form>
+        <button type="button" class="footer-brochure" data-modal-open="modal-brochure">
+          Recevoir notre brochure
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bloc villes SEO (pleine largeur) -->
+  <div class="footer-cities">
+    <div class="container">
+      <p class="footer-cities-group">
+        <span class="footer-cities-title">Côte d'Azur</span>
+        <a href="acheter.html">Cannes</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Le Cannet</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Mougins</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Antibes</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Juan-les-Pins</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Nice</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Villefranche-sur-Mer</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Menton</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Roquebrune-Cap-Martin</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Vence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Saint-Paul-de-Vence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Valbonne</a>
+      </p>
+      <p class="footer-cities-group">
+        <span class="footer-cities-title">Var &amp; Provence</span>
+        <a href="acheter.html">Montauroux</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Fayence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Lorgues</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Draguignan</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Saint-Tropez</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Sainte-Maxime</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Ligne légale -->
+  <div class="footer-legal">
+    <div class="container">
+      <p>&copy; 2026 Wretman Estate</p>
+      <ul>
+        <li><a href="#" aria-label="Mentions légales (lien factice)">Mentions légales</a></li>
+        <li><a href="#" aria-label="Politique de confidentialité (lien factice)">Politique de confidentialité</a></li>
+      </ul>
+      <p class="footer-proto">Prototype, maquette non contractuelle</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Flèche scroll-to-top (apparaît après 600 px de scroll) -->
+<button type="button" class="scroll-top" aria-label="Revenir en haut de la page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+    <path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/>
+  </svg>
+</button>
+
+<!-- Modal : créer une alerte recherche.
+     Ouverture : n'importe quel élément avec data-modal-open="modal-alerte".
+     Le récapitulatif des critères est rempli par main.js à l'ouverture
+     si les filtres de la page acheter sont présents. -->
+<div class="modal" id="modal-alerte" role="dialog" aria-modal="true" aria-labelledby="modal-alerte-title" hidden>
+  <div class="modal-overlay" data-modal-close></div>
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Fermer la fenêtre">&times;</button>
+    <h2 id="modal-alerte-title">Créer une alerte recherche</h2>
+    <p>Recevez en avant-première les biens correspondant à vos critères, directement par email.</p>
+    <p class="alert-recap" data-alert-recap>Vos critères — Lieu : toutes les villes · Type : tous les biens · Budget : sans limite</p>
+    <form data-fake-submit
+          data-success-message="Votre alerte est créée. Vous recevrez nos nouveaux biens correspondant à vos critères dès leur publication.">
+      <div class="form-field">
+        <label class="form-label" for="alerte-email">Votre adresse email</label>
+        <input class="form-input" type="email" id="alerte-email" name="email"
+               placeholder="prenom@exemple.com" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label class="checkbox">
+          <input type="checkbox" name="consentement" required>
+          <span>J'accepte de recevoir les nouveaux biens et actualités de Wretman Estate.</span>
+        </label>
+      </div>
+      <button class="btn btn-primary btn--block" type="submit">Créer mon alerte</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal : recevoir la brochure digitale.
+     Ouverture : data-modal-open="modal-brochure" (lien footer, CTA wretman.html). -->
+<div class="modal" id="modal-brochure" role="dialog" aria-modal="true" aria-labelledby="modal-brochure-title" hidden>
+  <div class="modal-overlay" data-modal-close></div>
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Fermer la fenêtre">&times;</button>
+    <h2 id="modal-brochure-title">Recevoir notre brochure</h2>
+    <p>Découvrez Wretman Estate, nos services et une sélection de biens d'exception dans notre brochure digitale.</p>
+    <form data-fake-submit
+          data-success-message="Merci ! Votre brochure digitale vient de vous être envoyée par email.">
+      <div class="form-field">
+        <label class="form-label" for="brochure-nom">Votre nom</label>
+        <input class="form-input" type="text" id="brochure-nom" name="nom"
+               autocomplete="name" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="brochure-email">Votre adresse email</label>
+        <input class="form-input" type="email" id="brochure-email" name="email"
+               placeholder="prenom@exemple.com" autocomplete="email" required>
+      </div>
+      <button class="btn btn-primary btn--block" type="submit">Recevoir la brochure</button>
+    </form>
+      <p class="modal-alt"><a href="#" aria-label="Consulter la brochure en ligne (lien factice)">Consulter la brochure en ligne</a></p>
+  </div>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

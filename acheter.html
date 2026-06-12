@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wretman Estate | Acheter — Biens d'exception sur la Côte d'Azur &amp; en Provence</title>
+  <meta name="description" content="Villas, penthouses, mas et domaines à vendre sur la Côte d'Azur et en Provence. Recherchez parmi les biens d'exception sélectionnés par Wretman Estate, agence franco-scandinave.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Ajustements propres à la page acheter -->
+  <style>
+    /* Ancres de la zone de recherche : compenser le header fixe */
+    #types, #secteurs, #cote-azur { scroll-margin-top: calc(var(--header-h) + 24px); }
+
+    /* Fieldset des caractéristiques : reset sobre */
+    .filters-panel fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+    .filters-panel legend { padding: 0; }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="logo" href="index.html" aria-label="Wretman Estate, retour à l'accueil">
+      <span class="logo-name">Wretman</span><span class="logo-estate">Estate</span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <ul class="nav-list">
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link is-active" href="acheter.html" aria-haspopup="true">Acheter<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="acheter.html#types">Par types de biens</a></li>
+            <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+            <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+            <li><a href="acheter.html">Voir tous nos biens</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="vendre.html" aria-haspopup="true">Vendre<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="vendre.html#estimation">Estimation</a></li>
+            <li><a href="contact.html">Nous rencontrer</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="wretman.html" aria-haspopup="true">Wretman<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="wretman.html#histoire">Notre histoire</a></li>
+            <li><a href="equipe.html">Notre équipe</a></li>
+            <li><a href="wretman.html#services">Nos services</a></li>
+            <li><a href="carrieres.html">Carrières</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="agences.html">Nos agences</a>
+        </li>
+
+        <li class="nav-item has-dropdown">
+          <a class="nav-link" href="magazine.html" aria-haspopup="true">Magazine<span class="nav-caret" aria-hidden="true"></span></a>
+          <ul class="dropdown">
+            <li><a href="magazine.html#articles">Articles</a></li>
+            <li><a href="magazine.html#presse">Presse &amp; médias</a></li>
+            <li><a href="magazine.html#evenements">Événements &amp; partenariats</a></li>
+            <li><a href="magazine.html#guides">Nos guides</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+
+      <!-- Sélecteur de langue : FR actif, autres langues inactives dans le prototype -->
+      <div class="lang-switch has-dropdown">
+        <button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          FR<span class="nav-caret" aria-hidden="true"></span>
+          <span class="sr-only">Choisir la langue du site</span>
+        </button>
+        <ul class="dropdown dropdown--right">
+          <li><button type="button" class="lang-option is-current" aria-current="true" lang="fr">FR · Français</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="en">EN · English</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="sv">SV · Svenska</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="no">NO · Norsk</button></li>
+          <li><button type="button" class="lang-option" aria-disabled="true" title="Disponible dans la version finale" lang="da">DA · Dansk</button></li>
+        </ul>
+      </div>
+
+      <a class="btn btn-primary btn--small header-cta" href="tel:+33493000000">Nous appeler</a>
+
+      <button type="button" class="burger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Panneau de navigation mobile (plein écran, ouvert par le burger) -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
+  <div class="mobile-nav-head">
+    <span class="logo"><span class="logo-name">Wretman</span><span class="logo-estate">Estate</span></span>
+    <button type="button" class="mobile-nav-close" aria-label="Fermer le menu">&times;</button>
+  </div>
+
+  <ul class="mobile-nav-list">
+    <li>
+      <button type="button" class="mobile-subtoggle is-active" aria-expanded="false" aria-controls="msub-acheter">
+        Acheter<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-acheter" hidden>
+        <li><a href="acheter.html#types">Par types de biens</a></li>
+        <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+        <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+        <li><a href="acheter.html">Voir tous nos biens</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-vendre">
+        Vendre<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-vendre" hidden>
+        <li><a href="vendre.html#estimation">Estimation</a></li>
+        <li><a href="contact.html">Nous rencontrer</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-wretman">
+        Wretman<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-wretman" hidden>
+        <li><a href="wretman.html#histoire">Notre histoire</a></li>
+        <li><a href="equipe.html">Notre équipe</a></li>
+        <li><a href="wretman.html#services">Nos services</a></li>
+        <li><a href="carrieres.html">Carrières</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </li>
+
+    <li><a href="agences.html">Nos agences</a></li>
+
+    <li>
+      <button type="button" class="mobile-subtoggle" aria-expanded="false" aria-controls="msub-magazine">
+        Magazine<span class="nav-caret" aria-hidden="true"></span>
+      </button>
+      <ul class="mobile-sub" id="msub-magazine" hidden>
+        <li><a href="magazine.html#articles">Articles</a></li>
+        <li><a href="magazine.html#presse">Presse &amp; médias</a></li>
+        <li><a href="magazine.html#evenements">Événements &amp; partenariats</a></li>
+        <li><a href="magazine.html#guides">Nos guides</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="mobile-nav-footer">
+    <p class="mobile-nav-lang" aria-label="Langues du site">
+      <span class="is-current" lang="fr">FR</span>
+      <span title="Disponible dans la version finale" lang="en">EN</span>
+      <span title="Disponible dans la version finale" lang="sv">SV</span>
+      <span title="Disponible dans la version finale" lang="no">NO</span>
+      <span title="Disponible dans la version finale" lang="da">DA</span>
+    </p>
+    <a class="btn btn-primary btn--block" href="tel:+33493000000">Nous appeler</a>
+  </div>
+</nav>
+
+<main id="contenu">
+
+  <!-- ============================================================
+       1. PAGE-HERO COMPACT + BREADCRUMB
+  ============================================================ -->
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+        <ol>
+          <li><a href="index.html">Accueil</a></li>
+          <li><span aria-current="page">Acheter</span></li>
+        </ol>
+      </nav>
+      <h1>Acheter sur la Côte d'Azur &amp; en Provence</h1>
+      <p>Villas les pieds dans l'eau, penthouses face à la mer, mas et bastides au cœur des vignes : explorez notre sélection de biens d'exception, de Cannes aux collines du Var, et laissez nos conseillers vous ouvrir les portes de la Riviera.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. RECHERCHE : barre de filtres + panneau secondaire
+          + 3. vue Liste / Carte + 4. compteur de résultats
+          Ancres #types #secteurs #cote-azur posées sur cette zone.
+  ============================================================ -->
+  <section class="section section--tight" id="types" aria-labelledby="recherche-titre">
+    <div class="container">
+      <span id="secteurs" aria-hidden="true"></span>
+      <span id="cote-azur" aria-hidden="true"></span>
+      <h2 class="sr-only" id="recherche-titre">Rechercher un bien</h2>
+
+      <form data-filter-form aria-label="Filtres de recherche de biens">
+
+        <!-- Barre de filtres principale -->
+        <div class="filter-bar">
+          <div class="form-field">
+            <label class="form-label" for="filter-lieu">Lieu</label>
+            <select class="form-select" id="filter-lieu" name="lieu">
+              <option value="">Toutes les villes</option>
+              <option value="cannes">Cannes</option>
+              <option value="nice">Nice</option>
+              <option value="antibes">Antibes</option>
+              <option value="menton">Menton</option>
+              <option value="vence">Vence</option>
+              <option value="valbonne">Valbonne</option>
+              <option value="montauroux">Montauroux</option>
+              <option value="lorgues">Lorgues</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="filter-type">Type de bien</label>
+            <select class="form-select" id="filter-type" name="type">
+              <option value="">Tous les types</option>
+              <option value="appartement">Appartement</option>
+              <option value="villa">Villa / Maison</option>
+              <option value="penthouse">Penthouse</option>
+              <option value="bastide">Bastide / Mas</option>
+              <option value="terrain">Terrain</option>
+              <option value="domaine">Domaine viticole</option>
+            </select>
+          </div>
+
+          <div class="budget-sync" data-budget-sync>
+            <label class="form-label" for="filter-budget">Budget max (euros)</label>
+            <input class="form-input" type="number" id="filter-budget" name="budget"
+                   min="0" step="50000" placeholder="Sans limite">
+            <input type="range" min="0" max="10000000" step="50000" value="10000000"
+                   aria-label="Budget maximum">
+          </div>
+
+          <div class="filter-actions">
+            <button type="button" class="btn btn-ghost" data-toggle-criteria
+                    aria-expanded="false" aria-controls="filters-secondary">
+              <span data-criteria-label>+ de critères</span>
+            </button>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+            <button type="button" class="btn btn-ghost" data-modal-open="modal-alerte">Créer une alerte</button>
+          </div>
+        </div>
+
+        <!-- Panneau de critères secondaires (déplié par "+ de critères") -->
+        <div class="filters-panel" id="filters-secondary" hidden>
+
+          <div class="filters-panel-group">
+            <span class="form-label" id="budget-range-label">Budget (euros)</span>
+            <div class="range-slider" data-range-slider>
+              <div class="range-slider-inputs">
+                <div class="range-slider-track"><div class="range-slider-fill" data-range-fill></div></div>
+                <input type="range" data-range-min min="0" max="10000000" step="50000" value="0"
+                       aria-label="Budget minimum">
+                <input type="range" data-range-max min="0" max="10000000" step="50000" value="10000000"
+                       aria-label="Budget maximum">
+              </div>
+              <div class="range-slider-values">
+                <div class="form-field">
+                  <label class="form-label" for="budget-min">Budget min (euros)</label>
+                  <input class="form-input" type="number" id="budget-min" name="budget-min"
+                         data-input-min min="0" step="50000">
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="budget-max">Budget max (euros)</label>
+                  <input class="form-input" type="number" id="budget-max" name="budget-max"
+                         data-input-max min="0" step="50000">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="filters-panel-row">
+            <div class="form-field">
+              <label class="form-label" for="filter-chambres">Chambres (minimum)</label>
+              <select class="form-select" id="filter-chambres" name="chambres">
+                <option value="">Indifférent</option>
+                <option value="1">1 et plus</option>
+                <option value="2">2 et plus</option>
+                <option value="3">3 et plus</option>
+                <option value="4">4 et plus</option>
+                <option value="5">5 et plus</option>
+                <option value="6">6 et plus</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="surface-min">Surface min (m²)</label>
+              <input class="form-input" type="number" id="surface-min" name="surface-min"
+                     min="0" step="10" placeholder="Ex. 100">
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="surface-max">Surface max (m²)</label>
+              <input class="form-input" type="number" id="surface-max" name="surface-max"
+                     min="0" step="10" placeholder="Ex. 400">
+            </div>
+          </div>
+
+          <fieldset class="filters-panel-group">
+            <legend class="form-label">Caractéristiques</legend>
+            <div class="checkbox-group">
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="jardin"><span>Jardin</span></label>
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="piscine"><span>Piscine</span></label>
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="vue-mer"><span>Vue mer</span></label>
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="garage"><span>Garage</span></label>
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="salle-de-sport"><span>Salle de sport</span></label>
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="sauna"><span>Sauna</span></label>
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="salle-de-cinema"><span>Salle de cinéma</span></label>
+              <label class="checkbox"><input type="checkbox" name="caracteristiques" value="ascenseur"><span>Ascenseur</span></label>
+            </div>
+          </fieldset>
+
+          <div class="filters-panel-row">
+            <div class="form-field">
+              <label class="form-label" for="filter-ref">Référence du bien</label>
+              <input class="form-input" type="text" id="filter-ref" name="reference" placeholder="Ex. WE-2841">
+              <p class="form-hint">Vous avez repéré un bien ? Saisissez directement sa référence.</p>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Compteur de résultats + bascule LISTE | CARTE -->
+      <div class="results-bar">
+        <p class="results-count" data-results-count aria-live="polite">8 biens</p>
+        <div class="view-toggle" role="group" aria-label="Mode d'affichage des biens">
+          <button type="button" data-view-btn="liste" aria-pressed="true">Liste</button>
+          <button type="button" data-view-btn="carte" aria-pressed="false">Carte</button>
+        </div>
+      </div>
+
+      <!-- Vue LISTE : grille des 8 biens -->
+      <div data-view-panel="liste">
+        <div class="grid-3" data-filter-grid>
+
+          <a class="prop-card" href="bien.html" data-ville="cannes" data-type="villa" data-prix="4850000">
+            <div class="prop-card-media">
+              <span class="badge badge--bordeaux prop-card-badge">Exclusivité</span>
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Villa contemporaine avec piscine et vue panoramique sur la mer, quartier de la Californie à Cannes" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Cannes (Californie)</p>
+              <h3 class="prop-card-title">Villa contemporaine vue mer panoramique</h3>
+              <p class="prop-card-prix">4 850 000 €</p>
+              <p class="prop-card-specs">
+                <span>5 chambres</span><span>320 m²</span><span>Terrain 1 500 m²</span>
+                <span>Piscine</span><span>Vue mer</span><span>Garage</span>
+              </p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html" data-ville="cannes" data-type="penthouse" data-prix="3200000">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Immeuble de standing abritant un penthouse avec terrasse face à la Croisette à Cannes" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Cannes</p>
+              <h3 class="prop-card-title">Penthouse face à la Croisette</h3>
+              <p class="prop-card-prix">3 200 000 €</p>
+              <p class="prop-card-specs">
+                <span>3 chambres</span><span>145 m²</span><span>Terrasse 60 m²</span>
+                <span>Vue mer</span><span>Ascenseur</span>
+              </p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html" data-ville="valbonne" data-type="bastide" data-prix="2450000">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Mas provençal en pierre entièrement rénové, entouré d'un jardin arboré à Valbonne" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Valbonne</p>
+              <h3 class="prop-card-title">Mas provençal entièrement rénové</h3>
+              <p class="prop-card-prix">2 450 000 €</p>
+              <p class="prop-card-specs">
+                <span>4 chambres</span><span>240 m²</span><span>Terrain 2 800 m²</span>
+                <span>Piscine</span><span>Jardin</span>
+              </p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html" data-ville="antibes" data-type="appartement" data-prix="890000">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Salon lumineux d'un appartement bourgeois rénové dans la vieille ville d'Antibes" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Antibes</p>
+              <h3 class="prop-card-title">Appartement bourgeois — vieille ville</h3>
+              <p class="prop-card-prix">890 000 €</p>
+              <p class="prop-card-specs">
+                <span>2 chambres</span><span>96 m²</span><span>Balcon</span><span>Rénové</span>
+              </p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html" data-ville="nice" data-type="villa" data-prix="6900000">
+            <div class="prop-card-media">
+              <span class="badge badge--bordeaux prop-card-badge">Exclusivité</span>
+              <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Villa de prestige avec piscine à débordement et accès privé à la mer au Cap de Nice" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Cap de Nice</p>
+              <h3 class="prop-card-title">Villa pieds dans l'eau</h3>
+              <p class="prop-card-prix">6 900 000 €</p>
+              <p class="prop-card-specs">
+                <span>6 chambres</span><span>410 m²</span><span>Accès mer privé</span>
+                <span>Piscine à débordement</span>
+              </p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html" data-ville="lorgues" data-type="bastide" data-prix="3750000">
+            <div class="prop-card-media">
+              <span class="badge badge--bordeaux prop-card-badge">Exclusivité</span>
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Bastide provençale au cœur d'un domaine viticole de quatre hectares à Lorgues" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Lorgues</p>
+              <h3 class="prop-card-title">Bastide au cœur des vignes</h3>
+              <p class="prop-card-prix">3 750 000 €</p>
+              <p class="prop-card-specs">
+                <span>7 chambres</span><span>380 m²</span><span>Domaine 4 ha</span>
+                <span>Piscine</span><span>Dépendances</span>
+              </p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html" data-ville="menton" data-type="penthouse" data-prix="1590000">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Séjour contemporain d'un penthouse dominant le port de Menton" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Menton</p>
+              <h3 class="prop-card-title">Penthouse contemporain sur le port</h3>
+              <p class="prop-card-prix">1 590 000 €</p>
+              <p class="prop-card-specs">
+                <span>3 chambres</span><span>128 m²</span><span>Vue mer</span><span>Parking</span>
+              </p>
+            </div>
+          </a>
+
+          <a class="prop-card" href="bien.html" data-ville="vence" data-type="villa" data-prix="1950000">
+            <div class="prop-card-media">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&amp;fit=crop&amp;w=800&amp;q=80"
+                   alt="Villa californienne moderne avec piscine et vue dégagée sur les collines de Vence" loading="lazy">
+            </div>
+            <div class="prop-card-body">
+              <p class="prop-card-ville">Vence</p>
+              <h3 class="prop-card-title">Villa californienne vue collines</h3>
+              <p class="prop-card-prix">1 950 000 €</p>
+              <p class="prop-card-specs">
+                <span>4 chambres</span><span>210 m²</span><span>Piscine</span><span>Vue dégagée</span>
+              </p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Vue CARTE : Leaflet, cercles approximatifs (confidentialité) -->
+      <div data-view-panel="carte" hidden>
+        <div id="map-acheter" class="map" role="region" aria-label="Carte des biens à vendre, emplacements approximatifs"></div>
+        <p class="map-note">Par discrétion pour les propriétaires, les emplacements affichés sont volontairement approximatifs. L'adresse exacte de chaque bien vous sera communiquée par votre conseiller Wretman Estate.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="container footer-grid">
+
+      <!-- Colonne 1 : marque -->
+      <div class="footer-col footer-brand">
+        <a class="logo" href="index.html" aria-label="Wretman Estate, retour à l'accueil">
+          <span class="logo-name">Wretman</span><span class="logo-estate">Estate</span>
+        </a>
+        <p class="footer-baseline">La plus grande agence immobilière franco-scandinave de France.</p>
+        <p class="footer-contact">
+          <a href="tel:+33493000000">+33 4 93 00 00 00</a>
+          <a href="mailto:contact@wretmanestate.com">contact@wretmanestate.com</a>
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram (lien factice)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook (lien factice)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-7.6h2.6l.4-3h-3V8.5c0-.87.24-1.46 1.49-1.46h1.6V4.36c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.9 1.41-3.9 4v2.16H7.6v3h2.65V21h3.15z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube (lien factice)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn (lien factice)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2 2 0 11-.02 4 2 2 0 01.02-4zM3.5 9h3v11.5h-3V9zm5.5 0h2.88v1.57h.04c.4-.76 1.38-1.57 2.85-1.57 3.05 0 3.61 2 3.61 4.62v6.88h-3v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.35 1.58-2.35 3.22v6.21H9V9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne 2 : Acheter -->
+      <nav class="footer-col" aria-label="Pied de page, acheter">
+        <h2 class="footer-title">Acheter</h2>
+        <ul>
+          <li><a href="acheter.html#types">Par types de biens</a></li>
+          <li><a href="acheter.html#secteurs">Par secteurs</a></li>
+          <li><a href="acheter.html#cote-azur">La Côte d'Azur</a></li>
+          <li><a href="acheter.html">Tous nos biens</a></li>
+        </ul>
+      </nav>
+
+      <!-- Colonne 3 : Vendre & Services -->
+      <nav class="footer-col" aria-label="Pied de page, vendre et services">
+        <h2 class="footer-title">Vendre &amp; Services</h2>
+        <ul>
+          <li><a href="vendre.html#estimation">Estimation</a></li>
+          <li><a href="contact.html">Nous rencontrer</a></li>
+          <li><a href="wretman.html#services">Nos services</a></li>
+          <li><a href="carrieres.html">Carrières</a></li>
+        </ul>
+      </nav>
+
+      <!-- Colonne 4 : Newsletter + brochure -->
+      <div class="footer-col">
+        <h2 class="footer-title">Newsletter</h2>
+        <form class="newsletter-form" data-fake-submit
+              data-success-message="Merci ! Vous êtes bien inscrit(e) à notre newsletter.">
+          <label class="form-label" for="newsletter-email">Votre adresse email</label>
+          <input class="newsletter-input" type="email" id="newsletter-email" name="email"
+                 placeholder="prenom@exemple.com" autocomplete="email" required>
+          <button class="btn btn-light btn--small" type="submit">S'abonner</button>
+        </form>
+        <button type="button" class="footer-brochure" data-modal-open="modal-brochure">
+          Recevoir notre brochure
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bloc villes SEO (pleine largeur) -->
+  <div class="footer-cities">
+    <div class="container">
+      <p class="footer-cities-group">
+        <span class="footer-cities-title">Côte d'Azur</span>
+        <a href="acheter.html">Cannes</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Le Cannet</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Mougins</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Antibes</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Juan-les-Pins</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Nice</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Villefranche-sur-Mer</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Menton</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Roquebrune-Cap-Martin</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Vence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Saint-Paul-de-Vence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Valbonne</a>
+      </p>
+      <p class="footer-cities-group">
+        <span class="footer-cities-title">Var &amp; Provence</span>
+        <a href="acheter.html">Montauroux</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Fayence</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Lorgues</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Draguignan</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Saint-Tropez</a><span class="sep" aria-hidden="true">·</span>
+        <a href="acheter.html">Sainte-Maxime</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Ligne légale -->
+  <div class="footer-legal">
+    <div class="container">
+      <p>&copy; 2026 Wretman Estate</p>
+      <ul>
+        <li><a href="#" aria-label="Mentions légales (lien factice)">Mentions légales</a></li>
+        <li><a href="#" aria-label="Politique de confidentialité (lien factice)">Politique de confidentialité</a></li>
+      </ul>
+      <p class="footer-proto">Prototype, maquette non contractuelle</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Flèche scroll-to-top (apparaît après 600 px de scroll) -->
+<button type="button" class="scroll-top" aria-label="Revenir en haut de la page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+    <path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/>
+  </svg>
+</button>
+
+<!-- Modal : créer une alerte recherche.
+     Ouverture : n'importe quel élément avec data-modal-open="modal-alerte".
+     Le récapitulatif des critères est rempli par main.js à l'ouverture
+     si les filtres de la page acheter sont présents. -->
+<div class="modal" id="modal-alerte" role="dialog" aria-modal="true" aria-labelledby="modal-alerte-title" hidden>
+  <div class="modal-overlay" data-modal-close></div>
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Fermer la fenêtre">&times;</button>
+    <h2 id="modal-alerte-title">Créer une alerte recherche</h2>
+    <p>Recevez en avant-première les biens correspondant à vos critères, directement par email.</p>
+    <p class="alert-recap" data-alert-recap>Vos critères — Lieu : toutes les villes · Type : tous les biens · Budget : sans limite</p>
+    <form data-fake-submit
+          data-success-message="Votre alerte est créée. Vous recevrez nos nouveaux biens correspondant à vos critères dès leur publication.">
+      <div class="form-field">
+        <label class="form-label" for="alerte-email">Votre adresse email</label>
+        <input class="form-input" type="email" id="alerte-email" name="email"
+               placeholder="prenom@exemple.com" autocomplete="email" required>
+      </div>
+      <div class="form-field">
+        <label class="checkbox">
+          <input type="checkbox" name="consentement" required>
+          <span>J'accepte de recevoir les nouveaux biens et actualités de Wretman Estate.</span>
+        </label>
+      </div>
+      <button class="btn btn-primary btn--block" type="submit">Créer mon alerte</button>
+    </form>
+  </div>
+</div>
+
+<!-- Modal : recevoir la brochure digitale.
+     Ouverture : data-modal-open="modal-brochure" (lien footer, CTA wretman.html). -->
+<div class="modal" id="modal-brochure" role="dialog" aria-modal="true" aria-labelledby="modal-brochure-title" hidden>
+  <div class="modal-overlay" data-modal-close></div>
+  <div class="modal-box">
+    <button type="button" class="modal-close" data-modal-close aria-label="Fermer la fenêtre">&times;</button>
+    <h2 id="modal-brochure-title">Recevoir notre brochure</h2>
+    <p>Découvrez Wretman Estate, nos services et une sélection de biens d'exception dans notre brochure digitale.</p>
+    <form data-fake-submit
+          data-success-message="Merci ! Votre brochure digitale vient de vous être envoyée par email.">
+      <div class="form-field">
+        <label class="form-label" for="brochure-nom">Votre nom</label>
+        <input class="form-input" type="text" id="brochure-nom" name="nom"
+               autocomplete="name" required>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="brochure-email">Votre adresse email</label>
+        <input class="form-input" type="email" id="brochure-email" name="email"
+               placeholder="prenom@exemple.com" autocomplete="email" required>
+      </div>
+      <button class="btn btn-primary btn--block" type="submit">Recevoir la brochure</button>
+    </form>
+      <p class="modal-alt"><a href="#" aria-label="Consulter la brochure en ligne (lien factice)">Consulter la brochure en ligne</a></p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/js/main.js" defer></script>
+
+</body>
+</html>
