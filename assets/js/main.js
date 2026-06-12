@@ -557,29 +557,41 @@
     const L = window.L;
     window._wretmanMaps = window._wretmanMaps || {};
 
-    /* Vue de secours centrée Côte d'Azur : fitBounds échoue si le
-       conteneur est masqué (ex. page acheter ouverte en vue liste),
-       d'où le setView préalable + fitBounds protégé. Les bounds sont
-       mémorisés pour être réappliqués à l'affichage de la vue carte. */
     const FALLBACK_VIEW = { center: [43.62, 6.95], zoom: 9 };
 
+    /* Fond de carte clair et épuré (CARTO Positron) — direction artistique Wretman :
+       minimaliste, premium, qui laisse respirer l'accent bordeaux. */
+    const tiles = () => L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      subdomains: 'abcd',
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'
+    });
+
+    /* Épingle bordeaux sur-mesure (charte) : goutte bordeaux + cœur blanc */
+    const wePin = L.divIcon({
+      className: 'we-pin',
+      html: '<svg width="30" height="40" viewBox="0 0 30 40" aria-hidden="true">' +
+            '<path d="M15 0C6.7 0 0 6.7 0 15c0 10.6 12.5 23.2 14.2 24.9a1.1 1.1 0 0 0 1.6 0C17.5 38.2 30 25.6 30 15 30 6.7 23.3 0 15 0z" fill="#7A1523"/>' +
+            '<circle cx="15" cy="14.6" r="4.6" fill="#fff"/></svg>',
+      iconSize: [30, 40], iconAnchor: [15, 39], popupAnchor: [0, -34]
+    });
+
+    // ---- Carte des biens : zones approximatives (jamais de point précis) ----
     const mapAcheter = document.getElementById('map-acheter');
     if (mapAcheter && !window._wretmanMaps.acheter) {
-      const map = L.map(mapAcheter, { scrollWheelZoom: false })
+      const map = L.map(mapAcheter, { scrollWheelZoom: false, attributionControl: true })
         .setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; les contributeurs <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
-      }).addTo(map);
+      tiles().addTo(map);
 
       const shapes = [];
       BIENS.forEach((b) => {
         const circle = L.circle([b.lat, b.lng], {
           radius: b.rayon,
           color: '#7A1523',
-          weight: 1,
+          weight: 1.5,
+          opacity: 0.9,
           fillColor: '#7A1523',
-          fillOpacity: 0.25
+          fillOpacity: 0.1
         }).addTo(map);
         circle.bindPopup(
           '<strong>' + b.titre + '</strong><br>' +
@@ -593,28 +605,45 @@
       window._wretmanMaps.acheter = map;
     }
 
+    // ---- Carte des agences : épingles bordeaux + cluster bordeaux ----
     const mapAgences = document.getElementById('map-agences');
     if (mapAgences && !window._wretmanMaps.agences) {
       const map = L.map(mapAgences, { scrollWheelZoom: false })
         .setView(FALLBACK_VIEW.center, FALLBACK_VIEW.zoom);
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; les contributeurs <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
-      }).addTo(map);
+      tiles().addTo(map);
+
+      /* Regroupement (cluster) à la charte si le plugin est présent, sinon épingles directes */
+      const useCluster = typeof L.markerClusterGroup === 'function';
+      const layer = useCluster
+        ? L.markerClusterGroup({
+            showCoverageOnHover: false,
+            maxClusterRadius: 48,
+            iconCreateFunction: function (cluster) {
+              return L.divIcon({
+                className: 'we-cluster',
+                html: '<span>' + cluster.getChildCount() + '</span>',
+                iconSize: [46, 46]
+              });
+            }
+          })
+        : L.layerGroup();
 
       const markers = [];
       AGENCES.forEach((a) => {
         const marker = L.marker(a.coords, {
+          icon: wePin,
           title: 'Wretman Estate — ' + a.ville,
           alt: 'Agence Wretman Estate de ' + a.ville
-        }).addTo(map);
+        });
         marker.bindPopup(
           '<strong>Wretman Estate — ' + a.ville + '</strong><br>' +
           a.adresse + '<br>' +
           '<a href="tel:+33493000000">+33 4 93 00 00 00</a>'
         );
+        layer.addLayer(marker);
         markers.push(marker);
       });
+      layer.addTo(map);
       map._wretmanBounds = L.featureGroup(markers).getBounds().pad(0.2);
       try { map.fitBounds(map._wretmanBounds); } catch (err) { /* conteneur masqué */ }
       window._wretmanMaps.agences = map;

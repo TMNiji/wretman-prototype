@@ -1838,3 +1838,39 @@ body.has-hero .site-header:not(.is-scrolled) .nav-link.is-active { color: var(--
 @media (max-width: 1023px) {
   html, body { overflow-x: hidden; }
 }
+
+/* ------------------------------------------------------------
+   28. CARTE — direction artistique Wretman
+   Épingle & cluster bordeaux sur-mesure, popups épurées.
+   ------------------------------------------------------------ */
+.we-pin { background: none; border: 0; }
+.we-pin svg { display: block; filter: drop-shadow(0 5px 7px rgba(26, 26, 26, 0.35)); transition: transform var(--t-fast); }
+.we-pin:hover svg { transform: translateY(-3px) scale(1.05); }
+
+.we-cluster { background: none; border: 0; }
+.we-cluster span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--c-bordeaux);
+  color: var(--c-white);
+  font-family: var(--font-title);
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid var(--c-white);
+  box-shadow: 0 4px 12px rgba(122, 21, 35, 0.35);
+}
+
+/* Popups & contrôles à la charte */
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius);
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow-pop);
+}
+.leaflet-popup-content { margin: 16px 18px; }
+.leaflet-container a.leaflet-popup-close-button { color: var(--c-grey); }
+.leaflet-container a.leaflet-popup-close-button:hover { color: var(--c-bordeaux); }
+.leaflet-bar a, .leaflet-bar a:hover { color: var(--c-ink); }
+.leaflet-bar a:hover { color: var(--c-bordeaux); }
